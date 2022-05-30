@@ -3,6 +3,7 @@ const ctx = canvas.getContext('2d');
 const CANVAS_WIDTH = canvas.width = 800;
 const CANVAS_HEIGHT = canvas.height = 700;
 let gameSpeed = 15;
+let gameFrame = 0;
 
 const backgroundLayer1 = new Image(); // same as .appendChile() document.createElement("img");
 backgroundLayer1.src = 'assets/background/layer-1.png'
@@ -31,7 +32,7 @@ class Layer {
         this.y = 0;
         this.width = 2400;
         this.height = 700;
-        this.x2 = this.width;
+        //this.x2 = this.width;
         this.image = image;
         this.speedModifier = speedModifier;
         this.speed = gameSpeed * this.speedModifier;
@@ -39,17 +40,15 @@ class Layer {
     update(){
         this.speed = gameSpeed * this.speedModifier;
         if (this.x <= -this.width) {
-            this.x = this.width + this.x2 - this.speed;
+           this.x = 0;
         }
-        if (this.x2 <= -this.width) {
-            this.x2 = this.width + this.x - this.speed;
-        }
+      
         this.x = Math.floor(this.x - this.speed);
-        this.x2 = Math.floor(this.x2 - this.speed);
+     
     }
     draw() {
         ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
-        ctx.drawImage(this.image, this.x2, this.y, this.width, this.height);
+        ctx.drawImage(this.image, this.x + this.width, this.y, this.width, this.height);
     }
 }
 
