@@ -39,11 +39,9 @@ class Layer {
     }
     update(){
         this.speed = gameSpeed * this.speedModifier;
-        if (this.x <= -this.width) {
-           this.x = 0;
-        }
-      
-        this.x = Math.floor(this.x - this.speed);
+     
+
+        this.x = gameFrame * this.speed % this.width;
      
     }
     draw() {
@@ -66,6 +64,7 @@ function animate() {
         e.update();
         e.draw();
     });
+    gameFrame--;
     requestAnimationFrame(animate);
 }
 animate();
