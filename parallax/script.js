@@ -3,7 +3,7 @@ const ctx = canvas.getContext('2d');
 const CANVAS_WIDTH = canvas.width = 800;
 const CANVAS_HEIGHT = canvas.height = 700;
 let gameSpeed = 15;
-let gameFrame = 0;
+
 
 const backgroundLayer1 = new Image(); // same as .appendChile() document.createElement("img");
 backgroundLayer1.src = 'assets/background/layer-1.png'
@@ -15,6 +15,10 @@ const backgroundLayer4 = new Image();
 backgroundLayer4.src = 'assets/background/layer-4.png'
 const backgroundLayer5 = new Image();
 backgroundLayer5.src = 'assets/background/layer-5.png'
+
+window.addEventListener('load', function() {
+
+}); // only run below if its fully load
 
 const slider = document.getElementById("slider");
 slider.value = gameSpeed;
